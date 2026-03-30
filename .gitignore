@@ -1,0 +1,30 @@
+# Build artifacts
+target/
+*.o
+*.so
+*.dylib
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Models (large files)
+*.gguf
+*.bin
+*.safetensors
+models/
+
+# Environment
+.env
+.env.local
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
