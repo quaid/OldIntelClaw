@@ -25,7 +25,7 @@ The orchestrator will deploy **ZeroClaw** (Rust-based) as the primary agent fram
 ### 3.3 Model Optimization & Management
 The app will fetch and prepare models in the **1B–8B parameter range** using **INT4/NF4 weight-only quantization** to prevent OOM (Out of Memory) crashes.
 *   **Quantization Engine:** Use ITREX for CPU-bound "Thinking" models and OpenVINO Model Optimizer for iGPU-bound models.
-*   **Model Store:** Maintain an optimized repository of OpenVINO IR and GGUF files in `~/.intelliclaw/models/`.
+*   **Model Store:** Maintain an optimized repository of OpenVINO IR and GGUF files in `~/.oldintelclaw/models/`.
 
 ## 4. Best Methods for Model Execution
 

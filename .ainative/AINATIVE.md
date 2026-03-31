@@ -18,3 +18,8 @@
 - ZeroClaw deployment with local inference endpoints
 - Model optimization for 16GB RAM constraint
 - TTFT < 500ms, TPS > 15 for 4B-class models on iGPU
+
+## Planning
+- **PRD**: `docs/PRD.md`
+- **Backlog**: `docs/planning/BACKLOG.md` (6 epics, 35 stories, 58 SP, 3 sprints)
+- **Model Store**: `~/.oldintelclaw/models/` (openvino/, itrex/, gguf/)
