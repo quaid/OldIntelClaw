@@ -30,6 +30,7 @@ setup_python313_itrex_missing_install_ok() {
     export OLDINTELCLAW_CMD_PYTHON_CHECK="true"
     export OLDINTELCLAW_CMD_PYTHON_VERSION="echo Python 3.13.0"
     export OLDINTELCLAW_CMD_ITREX_CHECK="false"
+    export OLDINTELCLAW_CMD_ITREX_VERIFY="true"
     export OLDINTELCLAW_CMD_VENV_CREATE="true"
     export OLDINTELCLAW_CMD_PIP_INSTALL="true"
     export OLDINTELCLAW_VENV_DIR="${BATS_TMPDIR}/new_venv_ok"
