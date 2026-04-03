@@ -125,12 +125,12 @@ teardown() {
 
     [ "$status" -eq 1 ]
 
-    # Rust-related lines must show OK
-    rust_line="$(echo "$output" | grep -i "rustc\|Rust")"
+    # rustc line must show OK
+    rust_line="$(echo "$output" | grep -i "rustc")"
     [[ "$rust_line" == *"OK"* ]]
 
     # OpenVINO import line must show FAIL
-    openvino_line="$(echo "$output" | grep -i "OpenVINO" | head -1)"
+    openvino_line="$(echo "$output" | grep -i "OpenVINO import")"
     [[ "$openvino_line" == *"FAIL"* ]]
 
     # Overall must be FAIL because at least one check failed
