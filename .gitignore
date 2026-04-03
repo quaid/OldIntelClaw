@@ -11,11 +11,12 @@ __pycache__/
 .venv/
 venv/
 
-# Models (large files)
+# Models (large files — model weights, not scripts)
 *.gguf
 *.bin
 *.safetensors
-models/
+# Exclude only the model store under OLDINTELCLAW_HOME, not scripts/models/
+.oldintelclaw/models/
 
 # Environment
 .env
