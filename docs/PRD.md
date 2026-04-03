@@ -278,3 +278,39 @@ For 0.1.0, users update by pulling the latest commit and re-running `./setup.sh`
 - **Tokens per Second (TPS):** > 15 t/s for 4B-class models on iGPU
 - **Cold Start:** < 10ms for the ZeroClaw agent framework itself
 - **Reliability:** Zero disk-swapping during standard 4k context inference
+
+---
+
+## 16. Future Roadmap
+
+The following features are planned for consideration after v0.1.0 is complete and tested. Each is tracked as a GitHub issue for backlog grooming. See `docs/planning/ROADMAP.md` for full detail.
+
+### Phase 2: Multi-Distro Support
+- **Distro detection and package manager abstraction** — detect Linux distribution, abstract installs behind dnf/apt/pacman/zypper layer
+- **Broader Intel generation support** — extend to 10th Gen (reduced features), Intel Arc dGPU, Core Ultra NPU
+- **Kernel parameter portability** — support dracut and update-initramfs, detect GRUB vs systemd-boot
+
+### Phase 3: Model Management Improvements
+- **Model registry CLI** — `oldintelclaw models list/add/remove/benchmark`
+- **Adaptive model selection** — auto-select model based on available RAM, profile-based model sets
+- **Model update pipeline** — check HF for newer versions, re-quantize on update
+
+### Phase 4: Runtime and Server Improvements
+- **Service management** — systemd user units, start/stop/status commands, auto-start on login
+- **API gateway** — unified OpenAI-compatible endpoint routing to correct backend on single port
+- **Resource monitoring** — real-time RAM/iGPU tracking, swap detection, performance alerts
+
+### Phase 5: User Experience
+- **Interactive setup TUI** — ncurses model selection, hardware summary, disk/time estimates
+- **Configuration management** — `oldintelclaw config show/set`, schema validation
+- **Diagnostics** — `oldintelclaw doctor` health check, log collection for bug reports
+
+### Phase 6: Distribution and Packaging
+- **Fedora COPR** — `dnf install oldintelclaw`
+- **Flatpak** — sandboxed cross-distro distribution
+- **Ansible role** — fleet deployment for organizations
+
+### Phase 7: Advanced Features
+- **Multi-model orchestration** — concurrent models, model chaining, token budget management
+- **Remote inference fallback** — local iGPU → local CPU → remote API failover
+- **Plugin system** — ZeroClaw skill marketplace, custom backends, post-processing pipelines
