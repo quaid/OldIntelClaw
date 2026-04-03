@@ -136,23 +136,23 @@ JSON
 @test "should_skip returns 1 (false) for a pending step" {
     init_state
 
-    should_skip "cpu_audit"
-    [ "$?" -eq 1 ]
+    run should_skip "cpu_audit"
+    [ "$status" -eq 1 ]
 }
 
 @test "should_skip returns 1 (false) for a failed step" {
     init_state
     mark_step "cpu_audit" "failed"
 
-    should_skip "cpu_audit"
-    [ "$?" -eq 1 ]
+    run should_skip "cpu_audit"
+    [ "$status" -eq 1 ]
 }
 
 @test "should_skip returns 1 (false) for a step that has never been recorded" {
     init_state
 
-    should_skip "never_recorded_step"
-    [ "$?" -eq 1 ]
+    run should_skip "never_recorded_step"
+    [ "$status" -eq 1 ]
 }
 
 # ---------------------------------------------------------------------------
