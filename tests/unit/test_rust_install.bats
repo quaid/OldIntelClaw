@@ -13,8 +13,9 @@ setup() {
     export OLDINTELCLAW_INSTALL_MARKER="${TEST_TMPDIR}/rustup_called"
 
     # Default: rustc and cargo found (already installed)
-    export OLDINTELCLAW_CMD_RUSTC_CHECK="echo rustc 1.75.0 (abc123 2024-01-01)"
-    export OLDINTELCLAW_CMD_CARGO_CHECK="echo cargo 1.75.0 (xyz456 2024-01-01)"
+    # Note: avoid parentheses in echo strings — eval interprets them as subshells
+    export OLDINTELCLAW_CMD_RUSTC_CHECK="echo rustc 1.75.0"
+    export OLDINTELCLAW_CMD_CARGO_CHECK="echo cargo 1.75.0"
 
     # Default: installer does nothing (shouldn't be reached when already installed)
     export OLDINTELCLAW_CMD_RUSTUP_INSTALL="true"
@@ -49,8 +50,8 @@ teardown() {
 
     # Installer succeeds and writes marker; post-install checks return success
     export OLDINTELCLAW_CMD_RUSTUP_INSTALL="touch ${OLDINTELCLAW_INSTALL_MARKER}"
-    export OLDINTELCLAW_CMD_RUSTC_POST="echo rustc 1.75.0 (abc123 2024-01-01)"
-    export OLDINTELCLAW_CMD_CARGO_POST="echo cargo 1.75.0 (xyz456 2024-01-01)"
+    export OLDINTELCLAW_CMD_RUSTC_POST="echo rustc 1.75.0"
+    export OLDINTELCLAW_CMD_CARGO_POST="echo cargo 1.75.0"
 
     run "${RUST_SCRIPT}"
 
@@ -86,9 +87,7 @@ teardown() {
 # Test 4: Rust installed but ~/.cargo/bin not in PATH — WARN about PATH
 # ---------------------------------------------------------------------------
 @test "Rust installed but cargo/bin not in PATH: WARN printed, exits 0" {
-    # Rust is present
-    export OLDINTELCLAW_CMD_RUSTC_CHECK="echo rustc 1.75.0"
-    export OLDINTELCLAW_CMD_CARGO_CHECK="echo cargo 1.75.0"
+    # Rust is present (using setup defaults which are already plain echo strings)
 
     # But cargo/bin is not in PATH
     export OLDINTELCLAW_CMD_PATH_CHECK="false"
