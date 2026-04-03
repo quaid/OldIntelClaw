@@ -16,8 +16,12 @@ MODEL_NAME="qwen3-8b"
 setup() {
     export OLDINTELCLAW_HOME="$(mktemp -d /tmp/oldintelclaw_home_XXXXXX)"
 
+    # Minimal valid manifest in the multi-line format register_model expects
     cat > "${OLDINTELCLAW_HOME}/manifest.json" <<'EOF'
-{"version":1,"models":{}}
+{
+  "version": 1,
+  "models": {}
+}
 EOF
 
     # Mock download: creates a dummy file at the output path
@@ -75,7 +79,17 @@ teardown() {
 # ---------------------------------------------------------------------------
 @test "qwen3-8b already registered in manifest — prints SKIP, exits 0" {
     cat > "${OLDINTELCLAW_HOME}/manifest.json" <<EOF
-{"version":1,"models":{"${MODEL_NAME}":{"backend":"itrex-cpu","path":"${OLDINTELCLAW_HOME}/models/itrex/qwen3-8b","size_gb":"5.5","registered":"2026-01-01T00:00:00Z"}}}
+{
+  "version": 1,
+  "models": {
+    "${MODEL_NAME}": {
+      "backend": "itrex-cpu",
+      "path": "${OLDINTELCLAW_HOME}/models/itrex/qwen3-8b",
+      "size_gb": "5.5",
+      "registered": "2026-01-01T00:00:00Z"
+    }
+  }
+}
 EOF
 
     run "${CONVERT_SCRIPT}"
