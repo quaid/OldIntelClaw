@@ -52,8 +52,8 @@ All models use INT4 quantization.
 git clone https://github.com/quaid/OldIntelClaw.git
 cd OldIntelClaw
 
-# Run the setup (coming soon)
-./setup.sh
+# Run the setup
+bash scripts/setup.sh
 ```
 
 The setup command will:
