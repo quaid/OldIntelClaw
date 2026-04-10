@@ -90,5 +90,9 @@ bats tests/unit/test_cpu_audit.bats
 
 ## Current Status
 - **Epic 1: System Audit & Prerequisites** — COMPLETE (6/6 stories, 49 tests)
-- **Epic 2: Dependency Orchestration** — Not started
-- **Epics 3-6** — Not started
+- **Epic 2: Dependency Orchestration** — COMPLETE (6/6 stories, 39 tests)
+- **Epic 3: ZeroClaw Setup & Configuration** — COMPLETE (5/5 stories, 33 tests)
+- **Epic 4: Model Management & Optimization** — COMPLETE (7/7 stories, 39 tests)
+- **Epic 5: Inference Server & Integration** — COMPLETE (5/5 stories, 28 tests)
+- **Epic 6: CLI UX, Error Handling & Documentation** — COMPLETE (6/6 stories, 50 tests)
+- **Total:** 35/35 stories, 238 tests (232 unit + 6 E2E)
