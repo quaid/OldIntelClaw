@@ -81,6 +81,10 @@ OldIntelClaw/
 └── .gitignore
 ```
 
+## Changelog
+
+See [docs/CHANGELOG.md](docs/CHANGELOG.md) for the full release history.
+
 ## License
 
 This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
